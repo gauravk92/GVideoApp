@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="XO5" height="400">
+  <Require feature="wave"/> 
+</ModulePrefs>
+<Content type="html">
+<![CDATA[
+
+  <script type="text/javascript">
+	
+	function clearCell(cell) {
+		cell.style.backgroundImage = null;
+	}
+	
+	function makeXCell(cell) {
+		cell.style.backgroundImage = 'url(http://dizbits.googlecode.com/svn/trunk/xo5/x.png)';
+	}
+
+	function makeOCell(cell) {
+		cell.style.backgroundImage = 'url(http://dizbits.googlecode.com/svn/trunk/xo5/o.png)';
+	}
+
+	function cellId(col, row) {
+		return 'cell-' + col + ':' + row;
+	}
+	
+	function cellAt(col, row) {
+		return document.getElementById(cellId(col, row));
+	}
+	
+	function cellTypeAt(col, row) {
+		var cell = cellAt(col, row);
+		var bimage = cell.style.backgroundImage;
+		if (bimage) {
+			if (bimage.indexOf('x.png') >= 0) {
+				return 'x';
+			}
+			if (bimage.indexOf('o.png') >= 0) {
+				return 'o';
+			}
+		}
+	}
+	
+	function checkWinner(cellType, col, row) {
+
+			function countSameCellsInLine(dcol, drow) {
+				var icol = col;
+				var irow = row;
+				var count = 0;
+				for (;;) {
+					icol += dcol;
+					if (icol < 0 || icol >= 15) {
+						break;
+					}
+					irow += drow;
+					if (irow < 0 || irow >= 15) {
+						break;
+					}
+					if (cellTypeAt(icol, irow) == cellType) {
+						count++;
+					} else {
+						break;
+					}
+					if (count == 4) {
+						break; // No sense to look further
+					}
+				}
+				return count;
+			}
+
+		return (
+			countSameCellsInLine(0, -1) + countSameCellsInLine(0, 1) >= 4 ||
+			countSameCellsInLine(1, -1) + countSameCellsInLine(-1, 1) >= 4 ||
+			countSameCellsInLine(1, 0) + countSameCellsInLine(-1, 0) >= 4 ||
+			countSameCellsInLine(1, 1) + countSameCellsInLine(-1, -1) >= 4
+			) ? 1 : 0;
+	}
+
+	function fullStateRestore() {
+		var state = wave.getState();
+		var move = state.get('move');
+		for (var i = 1; i <= move; i++) {
+			var col = state.get('col' + i);
+			var row = state.get('row' + i);
+			var cell = cellAt(col, row);
+			if (i % 2) {
+				makeXCell(cell);
+			} else {
+				makeOCell(cell);
+			}
+		}
+	}
+
+	function stateUpdated() {
+		var hint = '';
+		var state = wave.getState();
+		var move = state.get('move');
+
+		if (!window.g_xoStateFullyRestored) {
+			fullStateRestore();
+			window.g_xoStateFullyRestored = 1;
+		} else {
+			if (move) {
+				var col = state.get('col' + move);
+				var row = state.get('row' + move);
+				var cell = cellAt(col, row);
+				if (move % 2) {
+					makeXCell(cell);
+				} else {
+					makeOCell(cell);
+				}
+			} else {
+				var board = document.getElementById('board');
+				var cells = board.getElementsByTagName('div');
+				for (var i = 0; i < cells.length; i++) {
+					clearCell(cells.item(i));
+				}
+			}
+		}
+		
+		var oplayer = state.get('oplayer'); // viewerId
+		if (oplayer) {
+			var opart = wave.getParticipantById(oplayer);
+			document.getElementById('oplayer_name').firstChild.data = opart.getDisplayName();
+			if (move && move % 2) {
+				hint = 'Turn of ' + opart.getDisplayName();
+			}
+		} else {
+			document.getElementById('oplayer_name').firstChild.data = 'Unknown';
+			hint = 'Click on any free cell to join the game.';
+		}
+
+		var xplayer = state.get('xplayer'); // viewerId
+		if (xplayer) {
+			var xpart = wave.getParticipantById(xplayer);
+			document.getElementById('xplayer_name').firstChild.data = xpart.getDisplayName();
+			if (move && !(move % 2)) {
+				hint = 'Turn of ' + xpart.getDisplayName();
+			}
+		} else {
+			document.getElementById('xplayer_name').firstChild.data = 'Unknown';
+			hint = 'Click on any cell to start the game.';
+		}
+
+		var winner = state.get('winner'); // viewerId
+		if (winner) {
+			var wpart = wave.getParticipantById(winner);
+			hint = wpart.getDisplayName() + ' wins!';
+		}
+		document.getElementById('hint').firstChild.data = hint;
+	}
+	
+	function cellHandler(col, row) {
+		return function() {
+			var cell = cellAt(col, row);
+			if (cell.style.backgroundImage) {
+				return; // Cell is occupied
+			}
+      		var state = wave.getState();
+			var winner = state.get('winner'); // viewerId
+			if (winner) {
+				return; // Game over
+			}
+      		var player = wave.getViewer().getId();
+
+			// There is a flaw in the wave protocol: participants can't reliably agree on precedence.
+			// In our case players can't agree who makes the first move, so the logic below is flawed.
+			var move = state.get('move');
+			if (!move) {
+				move = 1;
+			} else {
+				move++;
+			}
+        	delta = {};
+			delta.move = move;
+			delta['col' + move] = col;
+			delta['row' + move] = row;
+
+			var xplayer = state.get('xplayer'); // viewerId
+			if (!xplayer) {
+				// We start the game as x
+				delta.xplayer = player;
+	        	state.submitDelta(delta);
+				return;
+			}
+			if (xplayer == player && (move % 2) == 1) {
+				// We do next move as x
+				if (checkWinner('x', col, row)) {
+					delta.winner = player;
+				}
+	        	state.submitDelta(delta);
+				return;
+			}
+
+			var oplayer = state.get('oplayer'); // viewerId
+			if (!oplayer) {
+				// We join the game as o
+				delta.oplayer = player;
+	        	state.submitDelta(delta);
+				return;
+			}
+			if (oplayer == player && (move % 2) == 0) {
+				// We do next move as o
+				if (checkWinner('o', col, row)) {
+					delta.winner = player;
+				}
+	        	state.submitDelta(delta);
+				return;
+			}
+		}
+	}
+
+	function restartGame() {
+    	if (wave && wave.isInWaveContainer()) {
+			wave.getState().reset();
+		}
+	}
+
+	function createBoard() {
+		var board = document.getElementById('board');
+		for (var row = 0; row < 15; row++) {
+			for (var col = 0; col < 15; col++) {
+				var cell = document.createElement('div');
+				cell.id = cellId(col, row);
+				cell.style.position = 'absolute';
+				cell.style.top = row * 16 + 'px';
+				cell.style.left = col * 16 + 'px';
+				cell.style.width = '16px';
+				cell.style.height = '16px';
+				cell.style.backgroundColor = 'white';
+				cell.style.borderWidth = '1px';
+				cell.style.borderStyle = 'solid';
+				cell.style.borderColor = '#eee';
+				cell.onclick = cellHandler(col, row);
+				board.appendChild(cell);
+			}
+		}
+	}
+	
+	function init() {
+		if (wave && wave.isInWaveContainer()) {
+			wave.setStateCallback(stateUpdated);
+			createBoard();
+		}
+	}
+	
+	gadgets.util.registerOnLoadHandler(init);
+
+  </script>
+
+  <p>
+	<span id='xplayer_name' style='font-weight: bold;'>Unknown</span>
+	<span>as</span>
+	<img src='http://dizbits.googlecode.com/svn/trunk/xo5/x.png' style='vertical-align: middle;'/>
+	<span style='margin: 0 10px;'>vs.</span>
+	<span id='oplayer_name' style='font-weight: bold;'>Unknown</span>
+	<span>as</span>
+	<img src='http://dizbits.googlecode.com/svn/trunk/xo5/o.png' style='vertical-align: middle;'/>
+  </p>
+  <p id='hint'/>
+  <div style='clear: both;'></div>
+  <div id='board' style='position: relative; width: 240px; height: 240px; background: #fff; margin: 5px;'></div>
+  <input type='button' value='New Game' onclick='restartGame()' style='margin: 5px;'/>
+  <a target='_top' href='http://www.dimzzy.com' style='color: #f8f8f8; margin-left: 30px;'>http://www.dimzzy.com</a>
+  ]]> 
+</Content>
+</Module>

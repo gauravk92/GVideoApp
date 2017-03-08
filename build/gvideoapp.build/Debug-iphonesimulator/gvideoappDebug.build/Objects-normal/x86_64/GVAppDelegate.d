@@ -1,0 +1,30 @@
+dependencies: \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVAppDelegate.m \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVAppDelegate.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVThreadViewController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVMasterModelObject.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/ParsePlatform-Anypic-7ba4fbf/Anypic-iOS/Vendor/MBProgressHUD/MBProgressHUD.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVMasterViewController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/ParsePlatform-Anypic-7ba4fbf/Anypic-iOS/Vendor/Reachability/Reachability.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVTintColorUtility.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVSettingsUtility.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVWelcomeSignupViewController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVThreadBackgroundView.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVCache.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVParseObjectUtility.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVThreadDetailNavigationController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVSplitViewController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVNavigationViewController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVThreadTableViewController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVReactionVideoViewController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVModalNavigationViewController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVModalCameraContainerViewController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVProgressView.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVReuseableViewSnapshot.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVSlidingModalNavigationController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVCollectionViewController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVDiskCache.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVInviteActivityProvider.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVShareActivityProvider.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVMoviePlayerViewController.h \
+  /Users/gaurav92/Dropbox/Projects/gvideoios/gvideoapp/GVMainScrollViewController.h

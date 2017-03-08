@@ -1,0 +1,44 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+    #import <Parse/Parse.h>
+    #import <libextobjc/EXTScope.h>
+    #import <AVFoundation/AVFoundation.h>
+    #import <AVFoundation/AVAsset.h>
+    #import <MediaPlayer/MediaPlayer.h>
+    #import <MobileCoreServices/UTCoreTypes.h>
+    #import <AssetsLibrary/AssetsLibrary.h>
+    #import <SDWebImage/UIImageView+WebCache.h>
+    #import <AFNetworking/AFNetworking.h>
+    #import <TestFlightSDK/TestFlight.h>
+    #import "gdebug.h"
+
+    #define VIDEO_MAXIMUM_DURATION 30
+
+    #define DEBUG_CF_MEMORY 1
+
+    #define FAKE_EXTERNAL_DISPLAY 0
+
+    #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+
+    #define TESTING_PERF 0
+
+    #define SDWEBIMAGE_CACHING 1
+
+    #define TESTING_ACCOUNT ([[[PFUser currentUser] username] isEqualToString:@"gvideotest"] || [[[PFUser currentUser] username] isEqualToString:@"gvideotest1"])
+
+    #define NSLog(__FORMAT__, ...) TFLog((@"%s [Line %d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#endif

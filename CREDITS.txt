@@ -1,0 +1,103 @@
+Takashi Hososhima
+https://www.flickr.com/photos/htakashi/
+https://creativecommons.org/licenses/by-sa/2.0/
+
+Alex
+https://www.flickr.com/photos/eflon/
+https://creativecommons.org/licenses/by/2.0/
+
+Romain Guy
+https://www.flickr.com/photos/romainguy/
+https://creativecommons.org/licenses/by-sa/2.0/
+
+Lara Cores
+https://www.flickr.com/photos/laracores/
+https://creativecommons.org/licenses/by/2.0/
+
+Kamyar Adl
+https://www.flickr.com/photos/kamshots/
+https://creativecommons.org/licenses/by/2.0/
+
+David Salafia
+http://www.jacksalafia.com/
+https://creativecommons.org/licenses/by-nd/2.0/
+
+Steve Parker
+https://www.flickr.com/photos/sparker/
+https://creativecommons.org/licenses/by/2.0/
+
+Ktoine
+https://www.flickr.com/photos/ktoine/
+https://creativecommons.org/licenses/by-sa/2.0/
+
+Karoly Czifra
+https://www.flickr.com/photos/ckaroli/
+https://creativecommons.org/licenses/by-sa/2.0/
+
+ECohen
+https://www.flickr.com/photos/7378221@N03/
+https://creativecommons.org/licenses/by-sa/2.0/
+
+OakleyOriginals
+https://www.flickr.com/photos/oakleyoriginals/
+https://creativecommons.org/licenses/by/2.0/
+
+Mark Sebastian
+http://www.markjsebastian.com/
+https://creativecommons.org/licenses/by-sa/2.0/
+
+iamtheo
+https://www.flickr.com/photos/_theo_/
+https://creativecommons.org/licenses/by/2.0/
+
+Timothy Krause
+https://www.flickr.com/photos/timothykrause/
+https://creativecommons.org/licenses/by/2.0/
+
+Eva Rinaldi
+https://www.flickr.com/photos/evarinaldiphotography/
+https://creativecommons.org/licenses/by-sa/2.0/
+
+SDWebImage
+Copyright (c) 2009 Olivier Poitrey <rs@dailymotion.com>
+ 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is furnished
+to do so, subject to the following conditions:
+ 
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+ 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+AFNetworking
+Copyright (c) 2013-2014 AFNetworking (http://afnetworking.com/)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
